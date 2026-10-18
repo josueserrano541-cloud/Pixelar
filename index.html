@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXELAR | Camisas de Anime & Streetwear</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts: Inter & Rajdhani para toque gaming/anime -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+        }
+        .font-anime {
+            font-family: 'Rajdhani', sans-serif;
+        }
+        .neon-glow-purple {
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
+        .neon-glow-cyan {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-[#0b0f19] text-gray-100 min-h-screen flex flex-col selection:bg-cyan-500 selection:text-black">
+
+    <!-- CONTENEDOR DE NOTIFICACIONES FLOTANTES (TOASTS) -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+
+    <!-- BARRA DE ANUNCIO SUPERIOR -->
+    <div class="bg-gradient-to-r from-purple-900 via-indigo-900 to-cyan-900 text-xs font-anime tracking-wider text-center py-2 px-4 text-cyan-300 font-semibold border-b border-cyan-500/20">
+        <i class="fa-solid fa-bolt mr-2"></i> ENVIOS A TODO EL SALVADOR POR $2.99 (ENTREGA EN 48 HORAS) | 1$ GASTADO = 1 JOYA 💎
+    </div>
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="sticky top-0 z-40 bg-[#0b0f19]/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2 group">
+                <img src="Code_Generated_Image.png.png" alt="PIXELAR Logo" class="h-12 w-auto rounded-lg border border-cyan-500/40 group-hover:scale-105 transition-transform shadow-lg shadow-cyan-500/20">
+            </a>
+
+            <nav class="hidden md:flex space-x-8 font-medium text-sm">
+                <a href="#inicio" class="hover:text-cyan-400 transition-colors">Inicio</a>
+                <a href="#colecciones" class="hover:text-cyan-400 transition-colors">Colecciones</a>
+                <a href="#sorteo" class="text-purple-400 hover:text-purple-300 transition-colors font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-trophy"></i> Sorteo VIP
+                </a>
+                <a href="#recompensas" class="hover:text-cyan-400 transition-colors">Sistema de Joyas</a>
+                <a href="#faq" class="hover:text-cyan-400 transition-colors">Preguntas & Políticas</a>
+                <a href="#historia" class="hover:text-cyan-400 transition-colors">Nuestra Historia</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <button onclick="toggleCart()" class="relative bg-gray-900 border border-gray-700 hover:border-cyan-500 p-2.5 rounded-xl transition-all flex items-center gap-2 group cursor-pointer">
+                    <i class="fa-solid fa-bag-shopping text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                    <span id="cart-count" class="bg-cyan-500 text-black font-bold text-xs px-2 py-0.5 rounded-full">0</span>
+                </button>
+                
+                <a href="https://instagram.com/pixelar_x" target="_blank" class="hidden sm:flex items-center gap-1.5 bg-gray-900 border border-gray-700 hover:border-purple-500 text-gray-200 px-3 py-2 rounded-xl font-medium text-xs transition-all">
+                    <i class="fa-brands fa-instagram text-purple-400"></i>
+                    <span>@pixelar_x</span>
+                </a>
+                <a href="https://tiktok.com/@pixelar_x" target="_blank" class="hidden sm:flex items-center gap-1.5 bg-gray-900 border border-gray-700 hover:border-cyan-500 text-gray-200 px-3 py-2 rounded-xl font-medium text-xs transition-all">
+                    <i class="fa-brands fa-tiktok text-cyan-400"></i>
+                    <span>@pixelar_x</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-[550px] flex items-center justify-center bg-cover bg-center overflow-hidden border-b border-gray-800" style="background-image: linear-gradient(to bottom, rgba(11, 15, 25, 0.7), rgba(11, 15, 25, 0.95)), url('https://th.bing.com/th/id/R.e8c43b6c620ead6e24b430e49c13faa2?rik=a3etRu5ziJnROw&pid=ImgRaw&r=0');">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-transparent to-transparent"></div>
+        
+        <div class="relative max-w-4xl mx-auto px-4 text-center py-24 z-10">
+            <span class="inline-block font-anime tracking-widest text-cyan-400 bg-cyan-950/80 border border-cyan-500/40 px-4 py-1.5 rounded-full text-sm font-semibold mb-6 neon-glow-cyan">
+                Bienvenidos al Grand Line
+            </span>
+            <h1 class="font-anime text-4xl sm:text-6xl lg:text-7xl font-bold tracking-wider uppercase text-white mb-6 leading-tight">
+                Supera tus limites aquí y ahora es el único camino que te queda
+            </h1>
+            <p class="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 font-light">
+                Camisas oversize de anime y streetwear ultra premium con algodón pesado de alta densidad (240g). Calidad superior y estructura impecable.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#colecciones" class="bg-cyan-500 hover:bg-cyan-400 text-black font-anime text-lg font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-cyan-500/30 tracking-wide text-center">
+                    EXPLORAR COLECCIONES
+                </a>
+                <a href="#sorteo" class="bg-purple-900/80 hover:bg-purple-800 border border-purple-500/60 text-purple-200 font-anime text-lg font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-purple-900/30 tracking-wide flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-trophy text-yellow-400"></i> SORTEO VIP ($40+)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE COLECCIONES -->
+    <section id="colecciones" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+            <div>
+                <span class="text-cyan-400 font-anime uppercase tracking-widest text-sm font-semibold">Catálogo Oficial</span>
+                <h2 class="font-anime text-3xl sm:text-4xl font-bold text-white tracking-wide mt-1">NUESTRAS COLECCIONES</h2>
+            </div>
+            <div class="flex flex-wrap gap-2 mt-4 md:mt-0" id="filter-buttons">
+                <button onclick="filterCollection('todas')" class="filter-btn active bg-cyan-500 text-black font-semibold px-4 py-2 rounded-xl text-sm transition-all cursor-pointer">Todas</button>
+                <button onclick="filterCollection('Demon Slayer')" class="filter-btn bg-gray-900 border border-gray-800 hover:border-cyan-500 px-4 py-2 rounded-xl text-sm transition-all cursor-pointer">Demon Slayer</button>
+                <button onclick="filterCollection('Jujutsu Kaisen')" class="filter-btn bg-gray-900 border border-gray-800 hover:border-cyan-500 px-4 py-2 rounded-xl text-sm transition-all cursor-pointer">Jujutsu Kaisen</button>
+                <button onclick="filterCollection('Black Clover')" class="filter-btn bg-gray-900 border border-gray-800 hover:border-cyan-500 px-4 py-2 rounded-xl text-sm transition-all cursor-pointer">Black Clover</button>
+                <button onclick="filterCollection('Zona Urbana')" class="filter-btn bg-gray-900 border border-gray-800 hover:border-cyan-500 px-4 py-2 rounded-xl text-sm transition-all cursor-pointer">Zona Urbana</button>
+            </div>
+        </div>
+
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Los productos se cargan dinámicamente -->
+        </div>
+    </section>
+
+    <!-- SECCIÓN SORTEO MENSUAL -->
+    <section id="sorteo" class="bg-gradient-to-b from-[#0b0f19] to-purple-950/40 border-y border-purple-900/50 py-16 px-4">
+        <div class="max-w-5xl mx-auto bg-gray-900/90 border border-purple-500/40 rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="max-w-xl">
+                    <span class="bg-purple-900/80 border border-purple-500 text-purple-300 text-xs font-mono px-3 py-1 rounded-full uppercase">Cupos Limitados</span>
+                    <h2 class="font-anime text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">SORTEO MENSUAL EXCLUSIVO PIXELAR</h2>
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+                        Por cada compra de <strong>al menos $40 USD</strong>, participas automáticamente por una caja misteriosa y premios épicos. Solo hay <strong>20 números disponibles</strong> (1 registro por número de celular).
+                    </p>
+                    <div class="flex items-center gap-4 bg-black/40 border border-gray-800 p-4 rounded-2xl">
+                        <div class="text-center px-4 border-r border-gray-800">
+                            <span class="block text-3xl font-anime font-bold text-cyan-400" id="cupos-disponibles">20</span>
+                            <span class="text-xs text-gray-400 uppercase">Cupos Libres</span>
+                        </div>
+                        <div class="text-xs text-gray-300">
+                            <p class="font-semibold text-white mb-1"><i class="fa-solid fa-circle-info text-purple-400 mr-1"></i> ¿Cómo asegurar tu número?</p>
+                            1. Haz tu compra de $40+.<br>
+                            2. Ingresa tu Nombre y tu Celular de 8 dígitos (sin guiones).<br>
+                            3. Síguenos en Instagram <a href="https://instagram.com/pixelar_x" target="_blank" class="text-purple-400 font-bold underline">@pixelar_x</a> y TikTok <a href="https://tiktok.com/@pixelar_x" target="_blank" class="text-cyan-400 font-bold underline">@pixelar_x</a> para ver el resultado en directo.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-80 bg-black/60 border border-gray-800 p-6 rounded-2xl">
+                    <h3 class="font-anime text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-ticket text-purple-400"></i> Registrar Cupo
+                    </h3>
+                    <form id="sorteo-form" onsubmit="registrarSorteo(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Nombre</label>
+                            <input type="text" id="sorteo-nombre" required placeholder="Ej. Carlos" class="w-full bg-gray-900 border border-gray-700 focus:border-cyan-500 text-white text-sm rounded-xl px-3 py-2.5 outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Celular (8 dígitos sin guiones)</label>
+                            <input type="text" id="sorteo-celular" maxlength="8" required placeholder="Ej. 71492583" class="w-full bg-gray-900 border border-gray-700 focus:border-cyan-500 text-white text-sm rounded-xl px-3 py-2.5 outline-none transition-colors">
+                        </div>
+                        <button type="submit" id="sorteo-btn" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-anime font-bold py-3 rounded-xl transition-all shadow-lg shadow-purple-900/40 cursor-pointer">
+                            APARTAR MI NÚMERO
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN SISTEMA DE RECOMPENSAS (JOYAS) -->
+    <section id="recompensas" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="bg-gradient-to-r from-cyan-950/30 to-purple-950/30 border border-cyan-500/30 rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+            <div class="max-w-3xl mx-auto text-center">
+                <span class="text-cyan-400 font-anime uppercase tracking-widest text-sm font-semibold">Fidelidad PIXELAR</span>
+                <h2 class="font-anime text-3xl sm:text-4xl font-bold text-white tracking-wide mt-1 mb-4">CLUB DE JOYAS 💎</h2>
+                <p class="text-gray-300 text-sm sm:text-base mb-8">
+                    Cada dólar que inviertes en tu estilo se convierte en poder. Consulta tus joyas acumuladas ingresando tu número de celular.
+                </p>
+
+                <!-- BUSCADOR / CONSULTOR DE PUNTOS -->
+                <div class="bg-black/60 border border-cyan-500/40 p-6 rounded-2xl max-w-lg mx-auto mb-8 shadow-xl">
+                    <h3 class="font-anime text-lg font-bold text-white mb-3 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass text-cyan-400"></i> Consulta tus Joyas Acumuladas
+                    </h3>
+                    <div class="flex gap-2">
+                        <input type="text" id="cliente-consulta-celular" maxlength="8" placeholder="Tu celular (8 dígitos)" class="flex-1 bg-gray-900 border border-gray-700 focus:border-cyan-500 text-white text-sm rounded-xl px-4 py-2.5 outline-none">
+                        <button onclick="consultarJoyasCliente()" class="bg-cyan-500 hover:bg-cyan-400 text-black font-anime font-bold px-5 py-2.5 rounded-xl transition-all text-sm cursor-pointer">
+                            CONSULTAR
+                        </button>
+                    </div>
+                    
+                    <div id="resultado-consulta-box" class="hidden mt-4 pt-4 border-t border-gray-800 text-left space-y-3">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-gray-300">Cliente: <strong id="res-nombre" class="text-white"></strong></span>
+                            <span class="text-cyan-400 font-bold font-mono text-sm" id="res-joyas">0 💎</span>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[11px] text-gray-400 mb-1 font-mono">
+                                <span id="res-progreso-texto">Progreso hacia tu camisa gratis (100 Joyas)</span>
+                                <span id="res-porcentaje">0%</span>
+                            </div>
+                            <div class="w-full bg-gray-900 border border-gray-800 h-4 rounded-full overflow-hidden p-0.5">
+                                <div id="barra-progreso-joyas" class="bg-gradient-to-r from-cyan-500 to-purple-500 h-full rounded-full transition-all duration-500" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <p id="res-mensaje-meta" class="text-[11px] text-purple-300 italic text-center pt-1"></p>
+
+                        <!-- BOTÓN DINÁMICO PARA RECLAMAR O AVISAR -->
+                        <div id="res-btn-container" class="pt-2"></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+                    <div class="bg-black/50 border border-gray-800 p-6 rounded-2xl flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-xl font-bold">
+                            $1
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">1 Dólar = 1 Joya</h4>
+                            <p class="text-xs text-gray-400">Tus compras suman automáticamente.</p>
+                        </div>
+                    </div>
+                    <div class="bg-black/50 border border-gray-800 p-6 rounded-2xl flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400 text-xl font-bold">
+                            100
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Meta: 100 Joyas</h4>
+                            <p class="text-xs text-gray-400">Canjéalas por <strong class="text-cyan-400">una camisa gratis</strong> a tu elección.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER DE FONDO FINAL -->
+    <section class="relative py-24 bg-cover bg-center border-t border-gray-800 overflow-hidden" style="background-image: linear-gradient(to bottom, rgba(11, 15, 25, 0.85), rgba(11, 15, 25, 0.95)), url('https://image.cdn2.seaart.me/2023-09-19/17599644064312325/33bbfdd99dd565ef20db70752ad918373a438553_high.webp');">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-transparent to-transparent"></div>
+        <div class="relative max-w-4xl mx-auto px-4 text-center z-10">
+            <span class="text-cyan-400 font-anime uppercase tracking-widest text-sm font-semibold bg-cyan-950/80 border border-cyan-500/40 px-4 py-1.5 rounded-full inline-block mb-4">
+                PIXELAR STREETWEAR
+            </span>
+            <h2 class="font-anime text-3xl sm:text-5xl font-bold text-white uppercase tracking-wider mb-4">
+                VIVE LA EXPERIENCIA OTAKU & URBANA EN CADA PRENDA
+            </h2>
+            <p class="text-gray-300 text-sm sm:text-base max-w-xl mx-auto font-light">
+                Diseños de alta calidad, algodón pesado de 240g y entregas directas a todo El Salvador.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PREGUNTAS FRECUENTES Y POLÍTICAS -->
+    <section id="faq" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-gray-800/80">
+        <div class="text-center mb-12">
+            <span class="text-purple-400 font-anime uppercase tracking-widest text-sm font-semibold">Transparencia PIXELAR</span>
+            <h2 class="font-anime text-3xl sm:text-4xl font-bold text-white tracking-wide mt-1">PREGUNTAS FRECUENTES & POLÍTICAS</h2>
+            <p class="text-gray-400 text-sm mt-2 max-w-xl mx-auto">Todo lo que necesitas saber antes de realizar tu compra para una experiencia impecable.</p>
+        </div>
+
+        <div class="space-y-4">
+            <div class="bg-gray-900/60 border border-gray-800 rounded-2xl overflow-hidden transition-all">
+                <button onclick="toggleFaq(1)" class="w-full text-left p-5 flex items-center justify-between font-anime text-lg font-bold text-white hover:text-cyan-400 transition-colors cursor-pointer">
+                    <span class="flex items-center gap-3">
+                        <i class="fa-solid fa-video text-cyan-400"></i>
+                        ¿Cómo sé que mi pedido va en perfectas condiciones?
+                    </span>
+                    <i id="faq-icon-1" class="fa-solid fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                </button>
+                <div id="faq-answer-1" class="hidden px-5 pb-5 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-gray-800/50 pt-3">
+                    En <strong>PIXELAR</strong> cuidamos cada detalle. Antes de sellar tu paquete, <strong>te enviamos un video personalizado por WhatsApp</strong> mostrando tu prenda doblada, el empaque oficial y la etiqueta de envío como prueba transparente de que tu pedido sale en condiciones totalmente impecables.
+                </div>
+            </div>
+
+            <div class="bg-gray-900/60 border border-gray-800 rounded-2xl overflow-hidden transition-all">
+                <button onclick="toggleFaq(5)" class="w-full text-left p-5 flex items-center justify-between font-anime text-lg font-bold text-white hover:text-cyan-400 transition-colors cursor-pointer">
+                    <span class="flex items-center gap-3">
+                        <i class="fa-solid fa-gem text-cyan-400"></i>
+                        ¿Cuándo se reflejan mis joyas acumuladas después de comprar?
+                    </span>
+                    <i id="faq-icon-5" class="fa-solid fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                </button>
+                <div id="faq-answer-5" class="hidden px-5 pb-5 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-gray-800/50 pt-3">
+                    Para garantizar total seguridad y transparencia, las joyas de tu compra se actualizan en el sistema de manera manual. Primero validamos y confirmamos tu pago, por lo que la actualización de tus puntos puede tomar un breve momento después de procesarlo.
+                </div>
+            </div>
+
+            <div class="bg-gray-900/60 border border-gray-800 rounded-2xl overflow-hidden transition-all">
+                <button onclick="toggleFaq(2)" class="w-full text-left p-5 flex items-center justify-between font-anime text-lg font-bold text-white hover:text-cyan-400 transition-colors cursor-pointer">
+                    <span class="flex items-center gap-3">
+                        <i class="fa-solid fa-ban text-purple-400"></i>
+                        ¿Cuál es la política de devoluciones y reembolsos?
+                    </span>
+                    <i id="faq-icon-2" class="fa-solid fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                </button>
+                <div id="faq-answer-2" class="hidden px-5 pb-5 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-gray-800/50 pt-3">
+                    Debido a que nuestras camisas son prendas de edición exclusiva e inspeccionadas individualmente en video antes de ser enviadas, <strong>contamos con una política estricta de NO REEMBOLSO de dinero ni cambios por talla</strong>. Te sugerimos revisar cuidadosamente la guía de tallas antes de hacer tu compra.
+                </div>
+            </div>
+
+            <div class="bg-gray-900/60 border border-gray-800 rounded-2xl overflow-hidden transition-all">
+                <button onclick="toggleFaq(3)" class="w-full text-left p-5 flex items-center justify-between font-anime text-lg font-bold text-white hover:text-cyan-400 transition-colors cursor-pointer">
+                    <span class="flex items-center gap-3">
+                        <i class="fa-solid fa-truck-fast text-cyan-400"></i>
+                        ¿Cuánto tarda en llegar mi pedido en El Salvador?
+                    </span>
+                    <i id="faq-icon-3" class="fa-solid fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                </button>
+                <div id="faq-answer-3" class="hidden px-5 pb-5 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-gray-800/50 pt-3">
+                    Realizamos envíos a <strong>todo el territorio de El Salvador por una tarifa fija de $2.99</strong>. El tiempo promedio de entrega es de <strong>24 a 48 horas hábiles</strong> una vez validado tu pago por WhatsApp.
+                </div>
+            </div>
+
+            <div class="bg-gray-900/60 border border-gray-800 rounded-2xl overflow-hidden transition-all">
+                <button onclick="toggleFaq(4)" class="w-full text-left p-5 flex items-center justify-between font-anime text-lg font-bold text-white hover:text-cyan-400 transition-colors cursor-pointer">
+                    <span class="flex items-center gap-3">
+                        <i class="fa-solid fa-wallet text-purple-400"></i>
+                        ¿Qué métodos de pago aceptan?
+                    </span>
+                    <i id="faq-icon-4" class="fa-solid fa-chevron-down text-xs text-gray-500 transition-transform"></i>
+                </button>
+                <div id="faq-answer-4" class="hidden px-5 pb-5 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-gray-800/50 pt-3">
+                    Aceptamos <strong>transferencias bancarias</strong> y también puedes pedir un **link de pago** para cancelar con tarjeta de crédito o débito de forma rápida y segura.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="historia" class="bg-black border-t border-gray-800 pt-16 pb-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="Code_Generated_Image.png.png" alt="PIXELAR Logo" class="h-10 w-auto rounded-lg border border-cyan-500/40">
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Nacimos de la pasión por el anime y el diseño urbano en El Salvador. Creemos que la ropa es una extensión de nuestra identidad: por eso cada prenda está confeccionada con algodón pesado de 240g, garantizando durabilidad, comodidad superior y un estilo inconfundible.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-anime text-white font-bold mb-4 tracking-wider">ENLACES</h4>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li><a href="#inicio" class="hover:text-cyan-400 transition-colors">Inicio</a></li>
+                            <li><a href="#colecciones" class="hover:text-cyan-400 transition-colors">Colecciones</a></li>
+                            <li><a href="#sorteo" class="hover:text-cyan-400 transition-colors">Sorteo Mensual</a></li>
+                            <li><a href="#recompensas" class="hover:text-cyan-400 transition-colors">Sistema de Joyas</a></li>
+                            <li><a href="#faq" class="hover:text-cyan-400 transition-colors">Preguntas & Políticas</a></li>
+                            <li class="pt-2"><button onclick="abrirAdminModal()" class="text-xs text-purple-400 hover:text-purple-300 font-mono flex items-center gap-1 cursor-pointer"><i class="fa-solid fa-lock"></i> Panel Admin</button></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-anime text-white font-bold mb-4 tracking-wider">SOPORTE & REDES</h4>
+                        <p class="text-xs text-gray-400 mb-2"><i class="fa-solid fa-location-dot text-cyan-400 mr-1"></i> Envíos a todo El Salvador ($2.99 - 48h)</p>
+                        <p class="text-xs text-gray-400 mb-2"><i class="fa-brands fa-instagram text-purple-400 mr-1"></i> Instagram: <a href="https://instagram.com/pixelar_x" target="_blank" class="text-purple-300 hover:underline">@pixelar_x</a></p>
+                        <p class="text-xs text-gray-400 mb-2"><i class="fa-brands fa-tiktok text-cyan-400 mr-1"></i> TikTok: <a href="https://tiktok.com/@pixelar_x" target="_blank" class="text-cyan-300 hover:underline">@pixelar_x</a></p>
+                        <p class="text-xs text-gray-400 mb-4"><i class="fa-solid fa-envelope text-cyan-400 mr-1"></i> Correo: <a href="mailto:pixelar.soportetecnico@gmail.com" class="text-cyan-300 hover:underline">pixelar.soportetecnico@gmail.com</a></p>
+                        <div class="flex gap-2">
+                            <a href="https://instagram.com/pixelar_x" target="_blank" class="inline-block bg-purple-500/10 border border-purple-500/40 text-purple-300 text-xs px-3 py-1.5 rounded-lg font-medium hover:bg-purple-500/20 transition-all">Instagram</a>
+                            <a href="https://tiktok.com/@pixelar_x" target="_blank" class="inline-block bg-cyan-500/10 border border-cyan-500/40 text-cyan-300 text-xs px-3 py-1.5 rounded-lg font-medium hover:bg-cyan-500/20 transition-all">TikTok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-900 pt-8 text-center text-xs text-gray-500">
+                &copy; 2026 PIXELAR Store El Salvador. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL GUÍA DE TALLAS -->
+    <div id="tallas-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="w-full max-w-lg bg-[#0b0f19] border border-cyan-500/40 rounded-3xl p-6 relative">
+            <button onclick="cerrarTallasModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white cursor-pointer">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="font-anime text-xl font-bold text-white mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-ruler-horizontal text-cyan-400"></i> Guía de Tallas (Oversize Fit 240g)
+            </h3>
+            <p class="text-xs text-gray-400 mb-4">Medidas aproximadas en centímetros para nuestro corte urbano holgado y pesado:</p>
+            <div class="bg-black/60 border border-gray-800 rounded-xl overflow-hidden text-xs">
+                <table class="w-full text-center">
+                    <thead class="bg-gray-900 text-cyan-400 font-anime">
+                        <tr class="border-b border-gray-800">
+                            <th class="py-2">Talla</th>
+                            <th class="py-2">Ancho (Pecho)</th>
+                            <th class="py-2">Largo Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-800 text-gray-300">
+                        <tr><td class="py-2 font-bold text-white">S</td><td>54 cm</td><td>70 cm</td></tr>
+                        <tr><td class="py-2 font-bold text-white">M</td><td>57 cm</td><td>73 cm</td></tr>
+                        <tr><td class="py-2 font-bold text-white">L</td><td>60 cm</td><td>76 cm</td></tr>
+                        <tr><td class="py-2 font-bold text-white">XL</td><td>63 cm</td><td>79 cm</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL / PANEL DE ADMINISTRADOR OCULTO -->
+    <div id="admin-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="w-full max-w-4xl bg-[#0b0f19] border border-purple-500/50 rounded-3xl p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="cerrarAdminModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white p-2 cursor-pointer">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- VISTA LOGIN -->
+            <div id="admin-login-view">
+                <h3 class="font-anime text-2xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-purple-400"></i> Panel de Dueño - PIXELAR
+                </h3>
+                <p class="text-xs text-gray-400 mb-6">Ingresa tu contraseña secreta para administrar el inventario, sorteo y joyas de clientes.</p>
+                <form onsubmit="verificarAdmin(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Contraseña de Administrador</label>
+                        <input type="password" id="admin-pass" required placeholder="Introduce tu clave" class="w-full bg-gray-900 border border-gray-700 focus:border-purple-500 text-white text-sm rounded-xl px-4 py-3 outline-none transition-colors">
+                    </div>
+                    <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-anime font-bold py-3 rounded-xl transition-all shadow-lg shadow-purple-900/40 cursor-pointer">
+                        ACCEDER AL PANEL
+                    </button>
+                </form>
+            </div>
+
+            <!-- VISTA DASHBOARD -->
+            <div id="admin-dashboard-view" class="hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-800 pb-4 gap-4">
+                    <div>
+                        <h3 class="font-anime text-2xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-chart-line text-cyan-400"></i> Panel de Control PIXELAR
+                        </h3>
+                        <p class="text-xs text-gray-400">Gestión de inventario por tallas/colores, clientes y sorteo VIP.</p>
+                    </div>
+                    <button onclick="cerrarSesionAdmin()" class="bg-red-500/10 border border-red-500/40 text-red-400 text-xs px-3 py-1.5 rounded-lg hover:bg-red-500/20 transition-all self-start sm:self-auto cursor-pointer">
+                        Cerrar Sesión
+                    </button>
+                </div>
+
+                <div class="flex border-b border-gray-800 space-x-6 overflow-x-auto">
+                    <button onclick="cambiarTabAdmin('inventario')" id="tab-btn-inventario" class="pb-2 border-b-2 border-cyan-400 text-cyan-400 font-bold text-sm flex items-center gap-2 whitespace-nowrap cursor-pointer">
+                        <i class="fa-solid fa-boxes-stacked"></i> Inventario & Stock
+                    </button>
+                    <button onclick="cambiarTabAdmin('joyas')" id="tab-btn-joyas" class="pb-2 border-b-2 border-transparent text-gray-400 hover:text-white font-bold text-sm flex items-center gap-2 whitespace-nowrap cursor-pointer">
+                        <i class="fa-solid fa-gem"></i> Club de Joyas
+                    </button>
+                    <button onclick="cambiarTabAdmin('sorteo')" id="tab-btn-sorteo" class="pb-2 border-b-2 border-transparent text-gray-400 hover:text-white font-bold text-sm flex items-center gap-2 whitespace-nowrap cursor-pointer">
+                        <i class="fa-solid fa-trophy"></i> Sorteo VIP ($40+)
+                    </button>
+                </div>
+
+                <!-- SECCIÓN 0: INVENTARIO & STOCK -->
+                <div id="admin-section-inventario" class="space-y-4">
+                    <p class="text-xs text-gray-400">Modifica la cantidad disponible por cada talla y color. Si el stock llega a 0, la talla aparecerá automáticamente como <strong class="text-red-400">Agotada</strong> en la tienda.</p>
+                    <div class="bg-black/50 border border-gray-800 rounded-2xl max-h-96 overflow-y-auto p-4">
+                        <table class="w-full text-left text-xs">
+                            <thead>
+                                <tr class="text-gray-400 border-b border-gray-800">
+                                    <th class="pb-2">Producto</th>
+                                    <th class="pb-2">Color / Variante</th>
+                                    <th class="pb-2 text-center">Talla S</th>
+                                    <th class="pb-2 text-center">Talla M</th>
+                                    <th class="pb-2 text-center">Talla L</th>
+                                    <th class="pb-2 text-center">Talla XL</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-tabla-inventario" class="divide-y divide-gray-800/50"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN 1: CLUB DE JOYAS -->
+                <div id="admin-section-joyas" class="hidden space-y-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="bg-black/40 border border-gray-800 p-4 rounded-2xl space-y-3">
+                            <h4 class="font-anime text-white font-bold text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-user-plus text-cyan-400"></i> Agregar / Actualizar Cliente
+                            </h4>
+                            <input type="text" id="admin-cliente-nombre" placeholder="Nombre completo" class="w-full bg-gray-900 border border-gray-700 text-white text-xs rounded-xl p-2.5 outline-none focus:border-cyan-500">
+                            <input type="text" id="admin-cliente-celular" maxlength="8" placeholder="Celular (8 dígitos)" class="w-full bg-gray-900 border border-gray-700 text-white text-xs rounded-xl p-2.5 outline-none focus:border-cyan-500">
+                            <input type="number" id="admin-cliente-joyas" placeholder="Joyas a sumar (ej. 24)" class="w-full bg-gray-900 border border-gray-700 text-white text-xs rounded-xl p-2.5 outline-none focus:border-cyan-500">
+                            <button onclick="guardarClienteJoyas()" class="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-anime font-bold text-xs py-2.5 rounded-xl transition-all cursor-pointer">
+                                REGISTRAR Y SUMAR JOYAS
+                            </button>
+                        </div>
+
+                        <div class="lg:col-span-2 space-y-3">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-anime text-white font-bold text-sm">Clientes y Puntos Acumulados</h4>
+                                <input type="text" id="buscar-cliente" oninput="actualizarTablaJoyas()" placeholder="Buscar por celular o nombre..." class="bg-gray-900 border border-gray-800 text-white text-xs rounded-xl px-3 py-1.5 outline-none focus:border-cyan-500 w-48">
+                            </div>
+                            <div class="bg-black/50 border border-gray-800 rounded-2xl max-h-56 overflow-y-auto p-3">
+                                <table class="w-full text-left text-xs">
+                                    <thead>
+                                        <tr class="text-gray-400 border-b border-gray-800">
+                                            <th class="pb-2">Cliente</th>
+                                            <th class="pb-2">Celular</th>
+                                            <th class="pb-2">Joyas 💎</th>
+                                            <th class="pb-2">Estado</th>
+                                            <th class="pb-2 text-right">Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="admin-tabla-joyas" class="divide-y divide-gray-800/50"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN 2: SORTEO VIP -->
+                <div id="admin-section-sorteo" class="hidden space-y-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-2xl">
+                            <span class="text-xs text-gray-400 block">Cupos Libres Restantes</span>
+                            <span class="text-3xl font-anime font-bold text-cyan-400" id="admin-cupos-libres">20</span>
+                        </div>
+                        <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-2xl">
+                            <span class="text-xs text-gray-400 block">Participantes Inscritos</span>
+                            <span class="text-3xl font-anime font-bold text-purple-400" id="admin-total-registrados">0</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-anime text-sm font-bold text-white uppercase tracking-wider mb-3">Listado de Participantes del Sorteo</h4>
+                        <div class="bg-black/50 border border-gray-800 rounded-2xl max-h-60 overflow-y-auto p-4">
+                            <table class="w-full text-left text-xs">
+                                <thead>
+                                    <tr class="text-gray-400 border-b border-gray-800">
+                                        <th class="pb-2">#</th>
+                                        <th class="pb-2">Nombre</th>
+                                        <th class="pb-2">Celular</th>
+                                        <th class="pb-2">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-tabla-participantes"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARRITO DE COMPRAS (SIDEBAR) -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex justify-end">
+        <div class="w-full max-w-md bg-[#0b0f19] border-l border-gray-800 h-full flex flex-col p-6 shadow-2xl">
+            <div class="flex items-center justify-between pb-4 border-b border-gray-800">
+                <h3 class="font-anime text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-bag-shopping text-cyan-400"></i> Tu Carrito PIXELAR
+                </h3>
+                <button onclick="toggleCart()" class="text-gray-400 hover:text-white p-2 cursor-pointer">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <div id="cart-items" class="flex-1 overflow-y-auto py-4 space-y-4"></div>
+
+            <div class="border-t border-gray-800 pt-4 space-y-3">
+                <div class="flex justify-between text-sm text-gray-400">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal" class="text-white font-bold">$0.00</span>
+                </div>
+                <div class="flex justify-between text-sm text-gray-400">
+                    <span>Envío (Todo El Salvador - 48h):</span>
+                    <span class="text-cyan-400 font-bold">$2.99</span>
+                </div>
+                <div class="flex justify-between text-base font-bold text-white pt-2 border-t border-gray-800/60">
+                    <span>Total a Pagar:</span>
+                    <span id="cart-total" class="text-cyan-400 font-anime text-xl">$2.99</span>
+                </div>
+
+                <div id="info-banco-box" class="bg-black/60 border border-purple-500/40 rounded-2xl p-3 text-[11px] space-y-1">
+                    <p class="text-purple-300 font-semibold"><i class="fa-solid fa-building-columns mr-1"></i> Datos para Transferencia Directa:</p>
+                    <p class="text-gray-300">Banco Promérica (Cuenta de Ahorros)</p>
+                    <p class="text-gray-300">Titular: Josue Serrano</p>
+                    <p class="text-gray-300 font-mono">Número de Cuenta: <span class="text-white font-bold">20000006022872</span></p>
+                </div>
+
+                <div id="checkout-action-container" class="space-y-2">
+                    <button onclick="checkoutWhatsApp()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-black font-anime font-bold text-base py-3 rounded-xl transition-all shadow-lg shadow-emerald-500/30 flex items-center justify-center gap-2 cursor-pointer">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>CONFIRMAR PEDIDO (TRANSFERENCIA)</span>
+                    </button>
+                    
+                    <button onclick="checkoutQuickPay()" class="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-anime font-bold text-base py-3 rounded-xl transition-all shadow-lg shadow-cyan-500/30 flex items-center justify-center gap-2 cursor-pointer">
+                        <i class="fa-solid fa-credit-card text-lg text-cyan-300"></i>
+                        <span>PEDIR UN LINK DE PAGO (TARJETA)</span>
+                    </button>
+                </div>
+                <p class="text-[10px] text-gray-500 text-center">Elige tu método preferido para completar tu compra de forma rápida y segura.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // LISTA OFICIAL DE PRODUCTOS
+        const products = [
+            { id: 1, name: "No me interesan los humanos", collection: "Jujutsu Kaisen", price: 20.00, images: ["sukuna.jpg", "sukuna2.jpg"], colors: ["Beige", "Negro"], desc: "Edición especial Ryomen Sukuna (King of Curses). Algodón pesado premium de 240g." },
+            { id: 2, name: "No importa cuantas veces caiga me levantare siempre", collection: "Black Clover", price: 20.00, image: "blackclove.jpg", desc: "Edición especial Black Clover. Estampado frontal minimalista y diseño trasero de alta densidad en algodón pesado de 240g." },
+            { id: 3, name: "¡Enciende tu corazón!", collection: "Demon Slayer", price: 20.00, images: ["pilares.jpg", "pilares2.jpg"], colors: ["Blanco", "Beige"], desc: "Edición especial inspirada en los Pilares de Demon Slayer. Algodón pesado premium de 240g." },
+            { id: 4, name: "En todo el cielo y la tierra yo soy el honrado", collection: "Jujutsu Kaisen", price: 20.00, image: "gojo.jpg", desc: "Edición especial inspirada en Satoru Gojo. Calidad supreme oversize en algodón pesado de 240g." },
+            { id: 5, name: "Mi magia es nunca rendirme", collection: "Black Clover", price: 20.00, images: ["asta1.jpg", "asta2.jpg"], colors: ["Blanco", "Beige"], desc: "Edición especial inspirada en Asta de Black Clover. Supera tus límites con algodón pesado de 240g." },
+            { id: 6, name: "El Rey leproso", collection: "Zona Urbana", price: 20.00, image: "reyleproso.jpg", desc: "Diseño urbano gótico y exclusivo de alta densidad sobre base de algodón pesado de 240g." },
+            { id: 7, name: "Blessed SB", collection: "Zona Urbana", price: 20.00, image: "blessed.jpg", desc: "Diseño clásico con tipografía gótica 'Blessed' en algodón pesado de alta densidad (240g)." },
+            { id: 8, name: "Soy tu hermano mayor, es mi deber protegerte", collection: "Jujutsu Kaisen", price: 20.00, images: ["choso.jpg", "choso2.jpg"], colors: ["Beige", "Blanco"], desc: "Edición exclusiva de Choso con la máxima calidad y durabilidad en algodón pesado de 240g." },
+            { id: 9, name: "67 en una noche. akaza", collection: "Demon Slayer", price: 20.00, images: ["akaza.jpg", "akaza2.jpg"], colors: ["Blanco", "Beige"], desc: "Diseño exclusivo inspirado en Akaza con la máxima calidad y durabilidad de 240g." }
+        ];
+
+        // GESTIÓN SEGURA DE ESTADOS Y STOCK EN MEMORIA
+        let productStates = {};
+        let currentFilter = 'todas';
+
+        // Inicializar estados de productos
+        products.forEach(p => {
+            productStates[p.id] = { imageIndex: 0, talla: 'M' };
+        });
+
+        let cart = JSON.parse(localStorage.getItem('pixelar_cart')) || [];
+        let participantes = JSON.parse(localStorage.getItem('pixelar_participantes')) || [];
+        let clientesJoyas = JSON.parse(localStorage.getItem('pixelar_clientes_joyas')) || [];
+        let cuposRestantes = 20 - participantes.length;
+
+        // Inicializar inventario en memoria limpiando conflictos anteriores
+        let inventoryStock = {};
+        products.forEach(p => {
+            inventoryStock[p.id] = {};
+            if (Array.isArray(p.images) && Array.isArray(p.colors) && p.images.length === p.colors.length) {
+                p.colors.forEach((col, idx) => {
+                    inventoryStock[p.id][idx] = { S: 5, M: 5, L: 5, XL: 5 };
+                });
+            } else {
+                inventoryStock[p.id][0] = { S: 5, M: 5, L: 5, XL: 5 };
+            }
+        });
+
+        document.getElementById('cupos-disponibles').innerText = cuposRestantes;
+        if (cuposRestantes <= 0) {
+            bloquearSorteoLleno();
+        }
+
+        updateCartUI();
+        renderProducts(currentFilter);
+
+        function showToast(mensaje, tipo = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `pointer-events-auto bg-gray-900 border ${tipo === 'success' ? 'border-cyan-500 text-cyan-300 shadow-cyan-500/20' : 'border-purple-500 text-purple-300 shadow-purple-500/20'} px-4 py-3 rounded-2xl shadow-2xl text-xs flex items-center gap-3 transition-all duration-300 transform translate-y-2 font-mono`;
+            toast.innerHTML = `<i class="fa-solid ${tipo === 'success' ? 'fa-box-open text-cyan-400' : 'fa-bell text-purple-400'} text-base"></i> <span>${mensaje}</span>`;
+            
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        function renderProducts(filter = 'todas') {
+            currentFilter = filter;
+            const grid = document.getElementById('product-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            const filtered = filter === 'todas' ? products : products.filter(p => p.collection === filter);
+
+            filtered.forEach(p => {
+                if (!productStates[p.id]) {
+                    productStates[p.id] = { imageIndex: 0, talla: 'M' };
+                }
+                const state = productStates[p.id];
+                
+                const hasMultipleImages = Array.isArray(p.images) && Array.isArray(p.colors) && p.images.length === p.colors.length && p.images.length > 0;
+                
+                if (state.imageIndex >= (hasMultipleImages ? p.images.length : 1)) {
+                    state.imageIndex = 0;
+                }
+
+                const currentImage = hasMultipleImages ? p.images[state.imageIndex] : p.image;
+                const currentColorName = hasMultipleImages ? p.colors[state.imageIndex] : 'Único';
+                const colorIdx = state.imageIndex;
+
+                if (!inventoryStock[p.id] || !inventoryStock[p.id][colorIdx]) {
+                    if (!inventoryStock[p.id]) inventoryStock[p.id] = {};
+                    inventoryStock[p.id][colorIdx] = { S: 5, M: 5, L: 5, XL: 5 };
+                }
+
+                const stockData = inventoryStock[p.id][colorIdx];
+                
+                if (stockData[state.talla] <= 0) {
+                    const availableSizes = ['S', 'M', 'L', 'XL'].filter(t => stockData[t] > 0);
+                    if (availableSizes.length > 0) {
+                        state.talla = availableSizes[0];
+                    }
+                }
+
+                let sliderControls = '';
+                if (hasMultipleImages) {
+                    sliderControls = `
+                        <button type="button" onclick="cambiarImagen(${p.id}, -1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-cyan-500 hover:text-black text-white w-8 h-8 rounded-full flex items-center justify-center transition-all opacity-80 hover:opacity-100 z-20 cursor-pointer">
+                            <i class="fa-solid fa-chevron-left text-xs"></i>
+                        </button>
+                        <button type="button" onclick="cambiarImagen(${p.id}, 1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-cyan-500 hover:text-black text-white w-8 h-8 rounded-full flex items-center justify-center transition-all opacity-80 hover:opacity-100 z-20 cursor-pointer">
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                        <div class="absolute bottom-3 right-3 z-20 bg-black/80 backdrop-blur-md text-cyan-300 font-mono text-[10px] px-2.5 py-1 rounded-full border border-cyan-500/30">
+                            Color: <span class="font-bold text-white">${currentColorName}</span> (${state.imageIndex + 1}/${p.images.length})
+                        </div>
+                    `;
+                }
+
+                let tallasHTML = '';
+                ['S', 'M', 'L', 'XL'].forEach(talla => {
+                    const qty = stockData[talla];
+                    const isAgotado = qty <= 0;
+                    const isSelected = state.talla === talla;
+
+                    if (isAgotado) {
+                        tallasHTML += `<button type="button" disabled class="px-3 py-1.5 text-xs rounded-lg border border-red-500/30 bg-red-950/20 text-red-400/60 cursor-not-allowed line-through"> ${talla} (Agotado)</button>`;
+                    } else if (qty === 1) {
+                        tallasHTML += `<button type="button" onclick="selectTalla(${p.id}, '${talla}')" class="px-3 py-1.5 text-xs rounded-lg border ${isSelected ? 'border-amber-500 bg-amber-500 text-black font-semibold cursor-pointer' : 'border-amber-500/50 bg-amber-950/20 text-amber-300 hover:border-amber-400 cursor-pointer'} transition-all">${talla} <span class="text-[9px] uppercase font-bold block sm:inline">¡Última!</span></button>`;
+                    } else {
+                        tallasHTML += `<button type="button" onclick="selectTalla(${p.id}, '${talla}')" class="px-3 py-1.5 text-xs rounded-lg border ${isSelected ? 'border-cyan-500 bg-cyan-500 text-black font-semibold cursor-pointer' : 'border-gray-700 bg-gray-800 text-gray-300 hover:border-cyan-500/60 cursor-pointer'} transition-all">${talla}</button>`;
+                    }
+                });
+
+                grid.innerHTML += `
+                    <div class="bg-gray-900/60 border border-gray-800 hover:border-cyan-500/50 rounded-2xl overflow-hidden transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="relative overflow-hidden aspect-square bg-gray-950">
+                                <span class="absolute top-3 left-3 z-10 bg-black/80 backdrop-blur-md text-cyan-400 font-mono text-[10px] px-2.5 py-1 rounded-full border border-cyan-500/30">
+                                    ${p.collection}
+                                </span>
+                                <span class="absolute bottom-3 left-3 z-10 bg-purple-950/90 text-purple-300 font-mono text-[10px] px-2.5 py-1 rounded-full border border-purple-500/30">
+                                    Algodón 240g Pesado
+                                </span>
+                                <img src="${currentImage}" alt="${p.name}" class="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-110">
+                                ${sliderControls}
+                            </div>
+                            <div class="p-5 space-y-3">
+                                <div>
+                                    <h3 class="font-anime text-lg font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">${p.name}</h3>
+                                    <p class="text-xs text-gray-400">${p.desc}</p>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <label class="text-[11px] font-semibold text-gray-400">Talla (Oversize):</label>
+                                        <button type="button" onclick="abrirTallasModal()" class="text-[10px] text-cyan-400 hover:underline cursor-pointer"><i class="fa-solid fa-ruler"></i> Ver Guía</button>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2">
+                                        ${tallasHTML}
+                                    </div>
+                                </div>
+
+                                <div class="pt-2 text-[10px] text-cyan-400 flex items-center gap-1 font-mono">
+                                    <i class="fa-solid fa-circle-check"></i> Inspeccionado en video antes de enviar
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 flex items-center justify-between border-t border-gray-800/60 pt-4">
+                            <span class="font-anime text-2xl font-bold text-cyan-400">$${p.price.toFixed(2)}</span>
+                            <button type="button" onclick="addToCartWithOptions(${p.id})" class="bg-cyan-500 hover:bg-cyan-400 text-black font-anime font-bold text-sm px-4 py-2 rounded-xl transition-all shadow-md shadow-cyan-500/25 cursor-pointer">
+                                AGREGAR
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function cambiarImagen(productId, direction) {
+            const product = products.find(p => p.id === productId);
+            if (!product || !product.images || !product.colors || product.images.length !== product.colors.length) return;
+
+            if (!productStates[productId]) {
+                productStates[productId] = { imageIndex: 0, talla: 'M' };
+            }
+
+            let state = productStates[productId];
+            state.imageIndex += direction;
+
+            if (state.imageIndex < 0) {
+                state.imageIndex = product.images.length - 1;
+            } else if (state.imageIndex >= product.images.length) {
+                state.imageIndex = 0;
+            }
+
+            renderProducts(currentFilter);
+        }
+
+        function selectTalla(productId, tallaValue) {
+            if (!productStates[productId]) {
+                productStates[productId] = { imageIndex: 0, talla: 'M' };
+            }
+            productStates[productId].talla = tallaValue;
+            renderProducts(currentFilter);
+        }
+
+        function filterCollection(col) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-cyan-500', 'text-black', 'font-semibold');
+                btn.classList.add('bg-gray-900', 'border', 'border-gray-800');
+            });
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.remove('bg-gray-900', 'border', 'border-gray-800');
+                event.currentTarget.classList.add('bg-cyan-500', 'text-black', 'font-semibold');
+            }
+            renderProducts(col);
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('hidden');
+        }
+
+        function abrirTallasModal() {
+            document.getElementById('tallas-modal').classList.remove('hidden');
+        }
+
+        function cerrarTallasModal() {
+            document.getElementById('tallas-modal').classList.add('hidden');
+        }
+
+        function addToCartWithOptions(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+
+            if (!productStates[id]) {
+                productStates[id] = { imageIndex: 0, talla: 'M' };
+            }
+
+            const state = productStates[id];
+            const hasMultipleImages = Array.isArray(product.images) && Array.isArray(product.colors) && product.images.length === product.colors.length;
+            const selectedColor = hasMultipleImages ? product.colors[state.imageIndex] : 'Único';
+            const colorIdx = state.imageIndex;
+            const selectedTalla = state.talla;
+            const selectedImage = hasMultipleImages ? product.images[state.imageIndex] : product.image;
+            
+            if (!inventoryStock[id] || !inventoryStock[id][colorIdx]) {
+                showToast("⚠️ Error de stock en esta variante.", "info");
+                return;
+            }
+
+            const stockData = inventoryStock[id][colorIdx];
+            if (stockData[selectedTalla] <= 0) {
+                showToast(`⚠️ Lo sentimos, la talla ${selectedTalla} en color ${selectedColor} está agotada.`, "info");
+                return;
+            }
+
+            const cartItemId = `${id}-${selectedColor}-${selectedTalla}`;
+            const existing = cart.find(item => item.cartItemId === cartItemId);
+
+            const currentQtyInCart = existing ? existing.qty : 0;
+            if (currentQtyInCart + 1 > stockData[selectedTalla]) {
+                showToast(`⚠️ Has alcanzado el límite de stock disponible para esta talla.`, "info");
+                return;
+            }
+
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({
+                    ...product,
+                    image: selectedImage,
+                    cartItemId,
+                    selectedColor,
+                    selectedTalla,
+                    colorIdx,
+                    qty: 1
+                });
+            }
+            localStorage.setItem('pixelar_cart', JSON.stringify(cart));
+            updateCartUI();
+            showToast(`¡${product.name} (${selectedColor}, Talla ${selectedTalla}) agregado al inventario!`);
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            const totalEl = document.getElementById('cart-total');
+
+            if (!cartCount || !cartItemsContainer) return;
+
+            cartCount.innerText = cart.reduce((acc, item) => acc + item.qty, 0);
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `<p class="text-gray-500 text-center py-8 text-sm">Tu carrito está vacío.</p>`;
+                if (subtotalEl) subtotalEl.innerText = "\$0.00";
+                if (totalEl) totalEl.innerText = "\$2.99";
+                return;
+            }
+
+            cartItemsContainer.innerHTML = '';
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                subtotal += item.price * item.qty;
+                cartItemsContainer.innerHTML += `
+                    <div class="flex items-center justify-between bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+                        <div class="flex items-center gap-3">
+                            <img src="${item.image}" class="w-12 h-12 object-cover rounded-lg">
+                            <div>
+                                <h4 class="text-white text-sm font-semibold">${item.name}</h4>
+                                <p class="text-[11px] text-gray-400">Color: <span class="text-cyan-300">${item.selectedColor}</span> | Talla: <span class="text-cyan-300 font-bold">${item.selectedTalla}</span></p>
+                                <p class="text-xs text-cyan-400 font-semibold">$${item.price} x ${item.qty}</p>
+                            </div>
+                        </div>
+                        <button type="button" onclick="removeItem(${index})" class="text-red-400 hover:text-red-300 p-2 text-xs cursor-pointer">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            });
+
+            if (subtotalEl) subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
+            const total = subtotal > 0 ? subtotal + 2.99 : 0;
+            if (totalEl) totalEl.innerText = `$${total.toFixed(2)}`;
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('pixelar_cart', JSON.stringify(cart));
+            updateCartUI();
+            showToast("Ítem removido del inventario", "info");
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                showToast("Agrega al menos una camisa a tu carrito.", "info");
+                return;
+            }
+
+            let subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            let total = subtotal + 2.99;
+            let joyasGanadas = Math.floor(subtotal);
+
+            let mensaje = "¡Hola PIXELAR! 🛍️ Deseo confirmar mi pedido (Algodón 240g - \$20 c/u):%0A%0A";
+            
+            mensaje += "1. *Información del artículo que está comprando:*%0A";
+            cart.forEach(item => {
+                mensaje += `   - ${item.qty}x ${item.name} (Color: ${item.selectedColor}, Talla: ${item.selectedTalla}) - $${(item.price * item.qty).toFixed(2)}%0A`;
+            });
+            mensaje += `   Subtotal: $${subtotal.toFixed(2)} | Envío: $2.99 | *TOTAL: $${total.toFixed(2)}*%0A%0A`;
+
+            mensaje += "2. *Nombre completo:* [Escribe tu nombre]%0A";
+            mensaje += "3. *Teléfono:* [Escribe tu número]%0A";
+            mensaje += "4. *Departamento y municipio:* [Escribe tu departamento y municipio]%0A";
+            mensaje += "5. *Calle/Colonia/Pasaje/ N de casa:* [Escribe tu dirección exacta]%0A";
+            mensaje += "6. *Punto de referencia:* [Escribe un punto de referencia cercano]%0A";
+            mensaje += `7. *La cantidad de joyas que se le sumaran:* ${joyasGanadas} Joyas 💎%0A`;
+            mensaje += "8. *Enviar comprobante despues de llenar formulario:* (Adjunta tu comprobante de transferencia a continuación)";
+
+            window.open(`https://wa.me/50371492583?text=${mensaje}`, '_blank');
+        }
+
+        function checkoutQuickPay() {
+            if (cart.length === 0) {
+                showToast("Agrega al menos una camisa a tu carrito.", "info");
+                return;
+            }
+
+            let subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            let total = subtotal + 2.99;
+
+            let mensaje = "¡Hola PIXELAR! 💳 Me interesa pagar con tarjeta. Aquí está mi pedido:%0A%0A";
+            
+            cart.forEach(item => {
+                mensaje += `- ${item.qty}x ${item.name} (Color: ${item.selectedColor}, Talla: ${item.selectedTalla}) - $${(item.price * item.qty).toFixed(2)}%0A`;
+            });
+            mensaje += `%0ASubtotal: $${subtotal.toFixed(2)} | Envío: $2.99 | *TOTAL A PAGAR: $${total.toFixed(2)}*%0A%0Aquiero un link de pago`;
+
+            window.open(`https://wa.me/50371492583?text=${mensaje}`, '_blank');
+        }
+
+        function consultarJoyasCliente() {
+            const celularInput = document.getElementById('cliente-consulta-celular').value.trim();
+            const cajaResultado = document.getElementById('resultado-consulta-box');
+            const btnContainer = document.getElementById('res-btn-container');
+
+            if (celularInput.length !== 8 || isNaN(celularInput)) {
+                showToast("Ingresa un número de celular válido de 8 dígitos.", "info");
+                return;
+            }
+
+            clientesJoyas = JSON.parse(localStorage.getItem('pixelar_clientes_joyas')) || [];
+            const clienteEncontrado = clientesJoyas.find(c => c.celular === celularInput);
+
+            cajaResultado.classList.remove('hidden');
+            btnContainer.innerHTML = '';
+
+            if (!clienteEncontrado) {
+                document.getElementById('res-nombre').innerText = "No registrado / Sin compras aún";
+                document.getElementById('res-joyas').innerText = "0 💎";
+                document.getElementById('barra-progreso-joyas').style.width = "0%";
+                document.getElementById('res-porcentaje').innerText = "0%";
+                document.getElementById('res-mensaje-meta').innerText = "Realiza tu primera compra para empezar a acumular joyas.";
+                
+                // Botón que disparará "Estas a muy poco" si no tiene joyas
+                btnContainer.innerHTML = `
+                    <button onclick="intentarCobrarPremio(0, '')" class="w-full bg-cyan-600/30 hover:bg-cyan-600/50 border border-cyan-500/40 text-cyan-300 font-anime font-bold text-xs py-2 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-gift"></i> Reclamar Camisa Gratis 💎
+                    </button>
+                `;
+                return;
+            }
+
+            const joyas = clienteEncontrado.joyas;
+            const meta = 100;
+            let porcentaje = Math.min(Math.round((joyas / meta) * 100), 100);
+
+            document.getElementById('res-nombre').innerText = clienteEncontrado.nombre;
+            document.getElementById('res-joyas').innerText = `${joyas} 💎`;
+            document.getElementById('barra-progreso-joyas').style.width = `${porcentaje}%`;
+            document.getElementById('res-porcentaje').innerText = `${porcentaje}%`;
+
+            if (joyas >= meta) {
+                document.getElementById('res-mensaje-meta').innerHTML = "🎉 <strong class='text-cyan-400'>¡Felicidades! Tienes disponible una camisa gratis para reclamar.</strong>";
+                
+                // Botón activo para reclamar por WhatsApp
+                let mensajeWa = `¡Hola PIXELAR! 💎 Soy ${clienteEncontrado.nombre} (Tel: ${clienteEncontrado.celular}). ¡Tengo ${joyas} joyas acumuladas y quiero reclamar mi camisa gratis! 🎉`;
+                btnContainer.innerHTML = `
+                    <a href="https://wa.me/50371492583?text=${encodeURIComponent(mensajeWa)}" target="_blank" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-black font-anime font-bold text-xs py-2.5 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 text-center">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> ¡RECLAMAR MI CAMISA GRATIS AHORA!
+                    </a>
+                `;
+            } else {
+                let faltantes = meta - joyas;
+                document.getElementById('res-mensaje-meta').innerText = `Te faltan ${faltantes} joyas para reclamar tu camisa gratis.`;
+                
+                // Botón que dispara la notificación "Estas a muy poco"
+                btnContainer.innerHTML = `
+                    <button onclick="intentarCobrarPremio(${joyas}, '${clienteEncontrado.nombre}')" class="w-full bg-cyan-600/30 hover:bg-cyan-600/50 border border-cyan-500/40 text-cyan-300 font-anime font-bold text-xs py-2 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-gift"></i> Reclamar Camisa Gratis 💎
+                    </button>
+                `;
+            }
+
+            showToast("Consulta de joyas actualizada exitosamente.");
+        }
+
+        function intentarCobrarPremio(joyas, nombre) {
+            if (joyas < 100) {
+                showToast("Estas a muy poco", "info");
+            }
+        }
+
+        function registrarSorteo(e) {
+            e.preventDefault();
+            if (cuposRestantes <= 0) return;
+
+            const nombre = document.getElementById('sorteo-nombre').value.trim();
+            const celular = document.getElementById('sorteo-celular').value.trim();
+
+            if (nombre.length === 0) {
+                showToast("Por favor ingresa un nombre válido.", "info");
+                return;
+            }
+
+            if (celular.length !== 8 || isNaN(celular)) {
+                showToast("El número de celular debe contener exactamente 8 dígitos numéricos.", "info");
+                return;
+            }
+
+            const yaRegistrado = participantes.some(p => p.celular === celular);
+            if (yaRegistrado) {
+                showToast("⚠️ Este número de celular ya ha sido registrado.", "info");
+                return;
+            }
+
+            participantes.push({ nombre, celular, fecha: new Date().toLocaleDateString() });
+            localStorage.setItem('pixelar_participantes', JSON.stringify(participantes));
+
+            cuposRestantes = 20 - participantes.length;
+            document.getElementById('cupos-disponibles').innerText = cuposRestantes;
+
+            if (cuposRestantes > 0) {
+                showToast(`¡Gracias ${nombre}! Número apartado con éxito para el sorteo.`);
+                e.target.reset();
+            } else {
+                bloquearSorteoLleno();
+                showToast(`¡Felicidades ${nombre}! Fuiste el último en asegurar cupo.`);
+                e.target.reset();
+            }
+        }
+
+        function bloquearSorteoLleno() {
+            document.getElementById('cupos-disponibles').innerText = "0";
+            const btn = document.getElementById('sorteo-btn');
+            if (btn) {
+                btn.disabled = true;
+                btn.className = "w-full bg-gray-700 text-gray-400 font-anime font-bold py-3 rounded-xl cursor-not-allowed";
+                btn.innerText = "¡SORTEO LLENO / CERRADO!";
+            }
+        }
+
+        function toggleFaq(id) {
+            const answer = document.getElementById(`faq-answer-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            if (answer && icon) {
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            }
+        }
+
+        function abrirAdminModal() {
+            document.getElementById('admin-modal').classList.remove('hidden');
+        }
+
+        function cerrarAdminModal() {
+            document.getElementById('admin-modal').classList.add('hidden');
+            document.getElementById('admin-pass').value = '';
+        }
+
+        function verificarAdmin(e) {
+            e.preventDefault();
+            const clave = document.getElementById('admin-pass').value;
+
+            if (clave === "pixelar2026") {
+                document.getElementById('admin-login-view').classList.add('hidden');
+                document.getElementById('admin-dashboard-view').classList.remove('hidden');
+                actualizarDashboardAdmin();
+            } else {
+                showToast("❌ Contraseña incorrecta.", "info");
+            }
+        }
+
+        function cerrarSesionAdmin() {
+            document.getElementById('admin-dashboard-view').classList.add('hidden');
+            document.getElementById('admin-login-view').classList.remove('hidden');
+            cerrarAdminModal();
+        }
+
+        function cambiarTabAdmin(tab) {
+            const secInv = document.getElementById('admin-section-inventario');
+            const secJoyas = document.getElementById('admin-section-joyas');
+            const secSorteo = document.getElementById('admin-section-sorteo');
+            
+            const btnInv = document.getElementById('tab-btn-inventario');
+            const btnJoyas = document.getElementById('tab-btn-joyas');
+            const btnSorteo = document.getElementById('tab-btn-sorteo');
+
+            if (secInv) secInv.classList.add('hidden');
+            if (secJoyas) secJoyas.classList.add('hidden');
+            if (secSorteo) secSorteo.classList.add('hidden');
+            
+            if (btnInv) btnInv.className = "pb-2 border-b-2 border-transparent text-gray-400 hover:text-white font-bold text-sm flex items-center gap-2 whitespace-nowrap cursor-pointer";
+            if (btnJoyas) btnJoyas.className = "pb-2 border-b-2 border-transparent text-gray-400 hover:text-white font-bold text-sm flex items-center gap-2 whitespace-nowrap cursor-pointer";
+            if (btnSorteo) btnSorteo.className = "pb-2 border-b-2 border-transparent text-gray-400 hover:text-white font-bold text-sm flex items-center gap-2 whitespace-nowrap cursor-pointer";
+
+            if (tab === 'inventario') {
+                if (secInv) secInv.classList.remove('hidden');
+                if (btnInv) btnInv.className = "pb-2 border-b-2 border-cyan-400 text-cyan-400 font-bold text-sm flex items-center gap-2 whitespace-nowrap cursor-pointer";
+            } else if (tab === 'joyas') {
+                if (secJoyas) secJoyas.classList.remove('hidden');
+                if (btnJoyas) btnJoyas.className = "pb-2 border-b-2 border-cyan-400 text-cyan-400 font-bold text-sm flex items-center gap-2 whitespace-nowrap cursor-pointer";
+            } else {
+                if (secSorteo) secSorteo.classList.remove('hidden');
+                if (btnSorteo) btnSorteo.className = "pb-2 border-b-2 border-purple-400 text-purple-400 font-bold text-sm flex items-center gap-2 whitespace-nowrap cursor-pointer";
+            }
+        }
+
+        function actualizarStockAdmin(productId, colorIdx, talla, valor) {
+            let qty = parseInt(valor);
+            if (isNaN(qty) || qty < 0) qty = 0;
+
+            if (!inventoryStock[productId]) inventoryStock[productId] = {};
+            if (!inventoryStock[productId][colorIdx]) inventoryStock[productId][colorIdx] = { S: 0, M: 0, L: 0, XL: 0 };
+
+            inventoryStock[productId][colorIdx][talla] = qty;
+            renderProducts(currentFilter);
+        }
+
+        function guardarClienteJoyas() {
+            const nombre = document.getElementById('admin-cliente-nombre').value.trim();
+            const celular = document.getElementById('admin-cliente-celular').value.trim();
+            const joyasNuevas = parseInt(document.getElementById('admin-cliente-joyas').value) || 0;
+
+            if (!nombre || celular.length !== 8 || isNaN(celular)) {
+                showToast("Ingresa un nombre y número de celular de 8 dígitos válido.", "info");
+                return;
+            }
+
+            let cliente = clientesJoyas.find(c => c.celular === celular);
+            if (cliente) {
+                cliente.joyas += joyasNuevas;
+                cliente.nombre = nombre;
+            } else {
+                clientesJoyas.push({ nombre, celular, joyas: joyasNuevas, id: 'CLI-' + Math.floor(1000 + Math.random() * 9000) });
+            }
+
+            localStorage.setItem('pixelar_clientes_joyas', JSON.stringify(clientesJoyas));
+            showToast(`Joyas actualizadas para ${nombre}`);
+            
+            document.getElementById('admin-cliente-nombre').value = '';
+            document.getElementById('admin-cliente-celular').value = '';
+            document.getElementById('admin-cliente-joyas').value = '';
+            
+            actualizarTablaJoyas();
+        }
+
+        function actualizarTablaJoyas() {
+            const tbody = document.getElementById('admin-tabla-joyas');
+            const inputBuscar = document.getElementById('buscar-cliente');
+            if (!tbody) return;
+            
+            const filtro = inputBuscar ? inputBuscar.value.toLowerCase() : '';
+            tbody.innerHTML = '';
+
+            const filtrados = clientesJoyas.filter(c => c.nombre.toLowerCase().includes(filtro) || c.celular.includes(filtro));
+
+            if (filtrados.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-4 text-gray-500">No se encontraron clientes.</td></tr>`;
+                return;
+            }
+
+            filtrados.forEach(c => {
+                const puedeCanjear = c.joyas >= 100;
+                tbody.innerHTML += `
+                    <tr class="hover:bg-white/5 transition-colors">
+                        <td class="py-2.5 font-semibold text-white">${c.nombre}</td>
+                        <td class="py-2.5 font-mono text-gray-300">${c.celular}</td>
+                        <td class="py-2.5 font-mono text-cyan-400 font-bold">${c.joyas} 💎</td>
+                        <td class="py-2.5">
+                            ${puedeCanjear 
+                                ? '<span class="bg-emerald-500/20 text-emerald-300 text-[10px] px-2 py-0.5 rounded-full border border-emerald-500/40 font-bold">¡Camisa Gratis Lista!</span>' 
+                                : '<span class="text-gray-500 text-[10px]">Acumulando...</span>'}
+                        </td>
+                        <td class="py-2.5 text-right">
+                            <button type="button" onclick="eliminarCliente('${c.celular}')" class="text-red-400 hover:text-red-300 text-xs px-2 py-1 cursor-pointer">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function eliminarCliente(celular) {
+            clientesJoyas = clientesJoyas.filter(c => c.celular !== celular);
+            localStorage.setItem('pixelar_clientes_joyas', JSON.stringify(clientesJoyas));
+            actualizarTablaJoyas();
+            showToast("Cliente eliminado de la base de datos.", "info");
+        }
+
+        function actualizarDashboardAdmin() {
+            const libEl = document.getElementById('admin-cupos-libres');
+            const regEl = document.getElementById('admin-total-registrados');
+            if (libEl) libEl.innerText = 20 - participantes.length;
+            if (regEl) regEl.innerText = participantes.length;
+
+            const tbodyInv = document.getElementById('admin-tabla-inventario');
+            if (tbodyInv) {
+                tbodyInv.innerHTML = '';
+
+                products.forEach(p => {
+                    if (p.colors && p.images && p.colors.length === p.images.length) {
+                        p.colors.forEach((colorName, cIdx) => {
+                            if (!inventoryStock[p.id]) inventoryStock[p.id] = {};
+                            if (!inventoryStock[p.id][cIdx]) inventoryStock[p.id][cIdx] = { S: 5, M: 5, L: 5, XL: 5 };
+                            const stock = inventoryStock[p.id][cIdx];
+
+                            tbodyInv.innerHTML += `
+                                <tr class="border-b border-gray-800/60 hover:bg-white/5">
+                                    <td class="py-2.5 font-semibold text-white">${p.name}</td>
+                                    <td class="py-2.5 text-cyan-300">${colorName}</td>
+                                    <td class="py-2.5 text-center"><input type="number" min="0" value="${stock.S}" onchange="actualizarStockAdmin(${p.id}, ${cIdx}, 'S', this.value)" class="w-16 bg-gray-900 border border-gray-700 text-white text-xs rounded-lg p-1 text-center"></td>
+                                    <td class="py-2.5 text-center"><input type="number" min="0" value="${stock.M}" onchange="actualizarStockAdmin(${p.id}, ${cIdx}, 'M', this.value)" class="w-16 bg-gray-900 border border-gray-700 text-white text-xs rounded-lg p-1 text-center"></td>
+                                    <td class="py-2.5 text-center"><input type="number" min="0" value="${stock.L}" onchange="actualizarStockAdmin(${p.id}, ${cIdx}, 'L', this.value)" class="w-16 bg-gray-900 border border-gray-700 text-white text-xs rounded-lg p-1 text-center"></td>
+                                    <td class="py-2.5 text-center"><input type="number" min="0" value="${stock.XL}" onchange="actualizarStockAdmin(${p.id}, ${cIdx}, 'XL', this.value)" class="w-16 bg-gray-900 border border-gray-700 text-white text-xs rounded-lg p-1 text-center"></td>
+                                </tr>
+                            `;
+                        });
+                    } else {
+                        if (!inventoryStock[p.id]) inventoryStock[p.id] = {};
+                        if (!inventoryStock[p.id][0]) inventoryStock[p.id][0] = { S: 5, M: 5, L: 5, XL: 5 };
+                        const stock = inventoryStock[p.id][0];
+
+                        tbodyInv.innerHTML += `
+                            <tr class="border-b border-gray-800/60 hover:bg-white/5">
+                                <td class="py-2.5 font-semibold text-white">${p.name}</td>
+                                <td class="py-2.5 text-gray-400">Único</td>
+                                <td class="py-2.5 text-center"><input type="number" min="0" value="${stock.S}" onchange="actualizarStockAdmin(${p.id}, 0, 'S', this.value)" class="w-16 bg-gray-900 border border-gray-700 text-white text-xs rounded-lg p-1 text-center"></td>
+                                <td class="py-2.5 text-center"><input type="number" min="0" value="${stock.M}" onchange="actualizarStockAdmin(${p.id}, 0, 'M', this.value)" class="w-16 bg-gray-900 border border-gray-700 text-white text-xs rounded-lg p-1 text-center"></td>
+                                <td class="py-2.5 text-center"><input type="number" min="0" value="${stock.L}" onchange="actualizarStockAdmin(${p.id}, 0, 'L', this.value)" class="w-16 bg-gray-900 border border-gray-700 text-white text-xs rounded-lg p-1 text-center"></td>
+                                <td class="py-2.5 text-center"><input type="number" min="0" value="${stock.XL}" onchange="actualizarStockAdmin(${p.id}, 0, 'XL', this.value)" class="w-16 bg-gray-900 border border-gray-700 text-white text-xs rounded-lg p-1 text-center"></td>
+                            </tr>
+                        `;
+                    }
+                });
+            }
+
+            const tbodySorteo = document.getElementById('admin-tabla-participantes');
+            if (tbodySorteo) {
+                tbodySorteo.innerHTML = '';
+
+                if (participantes.length === 0) {
+                    tbodySorteo.innerHTML = `<tr><td colspan="4" class="text-center py-4 text-gray-500">Aún no hay participantes en el sorteo.</td></tr>`;
+                } else {
+                    participantes.forEach((p, index) => {
+                        tbodySorteo.innerHTML += `
+                            <tr class="border-b border-gray-800/60 hover:bg-white/5">
+                                <td class="py-2.5 font-mono text-cyan-400">#${index + 1}</td>
+                                <td class="py-2.5 font-semibold text-white">${p.nombre}</td>
+                                <td class="py-2.5 font-mono text-gray-300">${p.celular}</td>
+                                <td class="py-2.5 text-purple-400 font-mono">Activo ($40+)</td>
+                            </tr>
+                        `;
+                    });
+                }
+            }
+
+            actualizarTablaJoyas();
+        }
+    </script>
+</body>
+</html>
